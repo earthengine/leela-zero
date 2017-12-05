@@ -10,6 +10,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "autogtp", "VS2015\autogtp.v
 		{D6006CAE-9236-4025-A4BD-A3466499C7B1} = {D6006CAE-9236-4025-A4BD-A3466499C7B1}
 	EndProjectSection
 EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Leelaz.Installer", "VS2015\Leelaz.Installer\Leelaz.Installer.wixproj", "{2A36259B-FA4D-43F5-AA98-24F0AC63BCAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -24,6 +26,10 @@ Global
 		{B12702AD-ABFB-343A-A199-8E24837244A3}.Debug|x64.Build.0 = Debug|x64
 		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x64.ActiveCfg = Release|x64
 		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x64.Build.0 = Release|x64
+		{2A36259B-FA4D-43F5-AA98-24F0AC63BCAB}.Debug|x64.ActiveCfg = Debug|x64
+		{2A36259B-FA4D-43F5-AA98-24F0AC63BCAB}.Debug|x64.Build.0 = Debug|x64
+		{2A36259B-FA4D-43F5-AA98-24F0AC63BCAB}.Release|x64.ActiveCfg = Release|x64
+		{2A36259B-FA4D-43F5-AA98-24F0AC63BCAB}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

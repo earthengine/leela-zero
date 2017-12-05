@@ -135,4 +135,12 @@
       <UserProperties MocDir=".\GeneratedFiles\$(ConfigurationName)" UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" lupdateOptions="" lupdateOnBuild="0" lreleaseOptions="" Qt5Version_x0020_x64="msvc2017_64 - 5.10.0" MocOptions="" />
     </VisualStudio>
   </ProjectExtensions>
+  <Target Name="CopyQtDll" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Copy SourceFiles="$(QTDIR)\bin\QtCored.dll"
+          DestinationFolder="$(OutDir)"/>
+  </Target>
+  <Target Name="CopyQtDll" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Copy SourceFiles="$(QTDIR)\bin\QtCore.dll"
+          DestinationFolder="$(OutDir)"/>
+  </Target>
 </Project>
