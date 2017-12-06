@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="*" Name="Leelaz.Installer" Language="1033" Version="1.0.0.0"
+	<Product Id="*" Name="Leelaz.Installer" Language="1033" Version="0.6.4.0"
            Manufacturer="Leela" UpgradeCode="03324a3e-77bc-41ac-a09b-f5d43a9581bb">
-		<Package InstallerVersion="200" Compressed="yes" InstallScope="perUser" Platform="x64" />
-
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perUser" 
+             Platform="x64" InstallPrivileges="limited" />
+    <Property Id="ALLUSERS" Value="2" />
+    <Property Id="MSIINSTALLPERUSER" Value="1" />
+    <Condition Message="Setting the ALLUSERS property is not allowed because Leela Zero is a per-user application. Setup will now exit.">
+      NOT ALLUSERS
+    </Condition>
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-		<MediaTemplate />
+		<MediaTemplate EmbedCab="yes" />
 
 		<Feature Id="ProductFeature" Title="Leelaz.Installer" Level="1">
 			<ComponentGroupRef Id="LeelazFiles" />
 		</Feature>
+    <SetProperty Id="ARPINSTALLLOCATION" Value="[INSTALLFOLDER]" After="CostFinalize"/>
 	</Product>
-
+  
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFiles64Folder">
