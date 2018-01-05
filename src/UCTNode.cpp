@@ -85,7 +85,7 @@ bool UCTNode::create_children(std::atomic<int> & nodecount,
     auto net_eval = raw_netlist.second;
     const auto to_move = state.board.get_to_move();
     // our search functions evaluate from black's point of view
-    if (to_move == FastBoard::WHITE) {
+    if (state.board.white_to_move()) {
         net_eval = 1.0f - net_eval;
     }
     eval = net_eval;
@@ -159,13 +159,13 @@ void UCTNode::kill_superkos(const KoState& state) {
 
 float UCTNode::eval_state(GameState& state) {
     auto raw_netlist = Network::get_scored_moves(
-        &state, Network::Ensemble::RANDOM_ROTATION);
+        &state, Network::Ensemble::RANDOM_ROTATION, -1, true);
 
     // DCNN returns winrate as side to move
     auto net_eval = raw_netlist.second;
 
     // But we score from black's point of view
-    if (state.get_to_move() == FastBoard::WHITE) {
+    if (state.board.white_to_move()) {
         net_eval = 1.0f - net_eval;
     }
 
